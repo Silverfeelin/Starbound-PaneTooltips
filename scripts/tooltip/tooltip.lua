@@ -53,7 +53,7 @@ end
 function tooltip.draw(ttip, wPos, wSize)
   local c = tooltip.canvas
 
-  widget.setText(tooltip.label, ttip.text or "")
+  widget.setText(tooltip.label, tooltip.getText(ttip))
   local labelSize = widget.getSize(tooltip.label)
 
   -- Params
@@ -85,6 +85,13 @@ function tooltip.draw(ttip, wPos, wSize)
 
   -- Text
   c:drawText(ttip.text or "", {position = p, horizontalAnchor = "mid", verticalAnchor = "mid"}, 7, tooltip.parameter(ttip, "color"))
+end
+
+--- Gets the text for a tooltip.
+-- @param Tooltip.
+-- @return Tooltip text, callback return value or an empty string.
+function tooltip.getText(ttip)
+  return ttip.text or ttip.callback and _ENV[ttip.callback]() or ""
 end
 
 --- Gets a parameter from the tooltip, or the default value.
