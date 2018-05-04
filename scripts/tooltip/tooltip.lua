@@ -9,8 +9,7 @@ tooltip.util = tooltipUtil
 
 --- Initializes the tooltip library.
 function tooltip.init()
-  tooltip.paneConfig = config.getParameter("tooltip")
-  if not tooltip.paneConfig then error("\"tooltip\" configuration not present.") end
+  tooltip.paneConfig = config.getParameter("tooltip", { canvas = "tooltipCanvas", label = "tooltipLabel" })
   tooltip.config = root.assetJson("/scripts/tooltip/tooltip.config")
 
   tooltip.canvas = widget.bindCanvas(tooltip.paneConfig.canvas)
