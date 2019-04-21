@@ -3,5 +3,5 @@
   "description" : "Tooltip library for ScriptPanes. Inspired by C0bra5. Do what you want with it.",
   "friendlyName" : "Pane Tooltips",
   "name" : "PaneTooltips",
-  "version" : "1.3.3.2"
+  "version" : "1.3.4.0"
 }
